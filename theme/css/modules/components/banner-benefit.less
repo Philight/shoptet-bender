@@ -1,0 +1,52 @@
+.benefitBanner {
+  z-index: 0;
+  position: relative;
+  justify-content: center;
+}
+.benefitBanner h2 {
+  flex-basis: 100%;
+}
+
+.benefitBanner::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: calc(100% + 300px);
+  max-width: 100vw;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.benefitBanner .benefitBanner__item {
+  flex-direction: column;
+  margin: 0;
+}
+
+.benefitBanner .benefitBanner__picture {
+  width: 100%;
+  max-width: none;
+}
+
+.benefitBanner .benefitBanner__title h4 {
+  margin: 0;
+  margin-top: 8px;
+}
+
+.benefitBanner .benefitBanner__data {
+  display: flex;
+  flex-direction: column;
+}
+
+.benefitBanner .icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 25px;
+}
+.benefitBanner .icon-wrapper img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+.benefitBanner .benefitBanner__data > p {
+  margin-top: 10px;
+}

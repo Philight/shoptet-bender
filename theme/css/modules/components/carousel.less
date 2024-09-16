@@ -1,0 +1,28 @@
+.row.banners-row {
+  margin: 0;
+  position: relative;
+}
+
+#carousel {
+  margin: 0;
+}
+
+#carousel .carousel-inner {
+  display: flex;
+}
+
+#carousel .carousel-inner .item {
+  width: 100%;
+  background-color: var(--color-secondary);
+}
+#carousel .carousel-inner .item img {
+  max-width: 630px;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  #carousel .carousel-inner .item img {
+    padding: 40px;
+  }
+}

@@ -1,0 +1,85 @@
+/* */
+
+.btn-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.illustration {
+  position: absolute;
+  will-change: all;
+  transition: all 0.4s ease-in;
+}
+.illustration.ill-1 {
+  bottom: 0;
+  left: -280px;
+}
+.illustration.ill-2 {
+  top: 0;
+  right: -190px;
+}
+
+.illustration.ill-3,
+.illustration.ill-4 {
+  width: 219px;
+}
+.illustration.ill-3 {
+  left: -95px;
+}
+.illustration.ill-4 {
+  right: -75px;
+}
+
+.navigation-buttons a[data-target="cart"] {
+  background-color: transparent;
+}
+.navigation-buttons a[data-target="cart"]::before {
+  display: none;
+}
+
+.welcome-wrapper section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.welcome-wrapper .welcome__text {
+  z-index: 0;
+  position: relative;
+  flex: 0;
+  flex-basis: calc(100% / 3 * 2 - 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 80px;
+  padding-left: 0px;
+}
+
+.welcome-wrapper h2 {
+  text-align: left;
+  margin: 0;
+}
+
+.welcome-wrapper p {
+  white-space: pre-line;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+.welcome-wrapper .welcome__background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.welcome-wrapper img {
+  width: calc(100% / 3 - 24px);
+  height: 100%;
+  margin: 0 auto;
+}
