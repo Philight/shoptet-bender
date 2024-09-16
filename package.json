@@ -5,12 +5,19 @@
   "main": "index.js",
   "bin": "index.js",
   "type": "module",
+  "config": {
+    "REMOTE": "https://673800.myshoptet.com/",
+    "BASENAME": "/",
+    "REPOSITORY": "https://github.com/[USER]/[REPOSITORY].git"
+  },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js --remote $npm_package_config_REMOTE -w -n",
+    "start:blank": "node index.js --remote $npm_package_config_REMOTE -w -n -b"
   },
   "author": "Shoptet",
   "license": "ISC",
   "dependencies": {
+    "cross-var": "^1.1.0",
     "@babel/core": "^7.24.1",
     "@babel/preset-env": "^7.24.1",
     "babel-loader": "^9.1.3",
