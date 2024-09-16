@@ -1,32 +1,36 @@
 /** @format */
 
-import path from 'path';
-import { glob } from 'glob';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import WebpackObfuscatorPlugin from 'webpack-obfuscator';
-import RemoveEmptyScriptsPlugin from 'webpack-remove-empty-scripts';
+import path from "path";
+import { glob } from "glob";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import WebpackObfuscatorPlugin from "webpack-obfuscator";
+import RemoveEmptyScriptsPlugin from "webpack-remove-empty-scripts";
 
-const outputDir = path.resolve(process.cwd(), 'dist');
+const srcDir = path.resolve(process.cwd(), "theme");
+const outputDir = path.resolve(process.cwd(), "dist");
 
 const extensionsFilenames = {
-  js: 'scripts',
-  scss: 'styles',
-  less: 'styles',
-  css: 'styles',
-  html: 'markup',
+  js: "scripts",
+  scss: "styles",
+  less: "styles",
+  css: "styles",
+  html: "markup",
 };
 
 const getEntries = (extension, isProduction) => {
   const entries = {};
-  const folders = ['footer', 'header', 'index'];
-  folders.forEach(folder => {
-    const files = glob.sync(`./src/${folder}/**/*.${extension}`);
+  const folders = ["footer", "header", "index"];
+  folders.forEach((folder) => {
+    // const files = glob.sync(`./src/${folder}/**/*.${extension}`);
+    const files = glob.sync(srcDir + `${folder}/**/*.${extension}`);
     if (files.length > 0) {
-      const foundExtension = files[0].split('.').pop();
+      const foundExtension = files[0].split(".").pop();
       const filename = extensionsFilenames[foundExtension];
-      const minExtension = isProduction ? '.min' : '';
-      entries[`${filename}.${folder}${minExtension}`] = files.map(str => './' + str);
+      const minExtension = isProduction ? ".min" : "";
+      entries[`${filename}.${folder}${minExtension}`] = files.map(
+        (str) => "./" + str,
+      );
     }
   });
   return entries;
@@ -34,22 +38,22 @@ const getEntries = (extension, isProduction) => {
 
 const getGlobalAssetsEntry = () => {
   const entries = {};
-  const files = glob.sync('./assets/**/*');
+  const files = glob.sync("./assets/**/*");
   if (files.length > 0) {
-    entries['assets'] = files.map(str => './' + str);
+    entries["assets"] = files.map((str) => "./" + str);
   }
   return entries;
 };
 
-export default env => {
+export default (env) => {
   const isProduction = env.production === true;
   return {
-    mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? false : 'eval',
+    mode: isProduction ? "production" : "development",
+    devtool: isProduction ? false : "eval",
     entry: {
-      ...getEntries('js', isProduction),
-      ...getEntries('{scss,less}', isProduction),
-      ...getEntries('css', isProduction),
+      ...getEntries("js", isProduction),
+      ...getEntries("{scss,less}", isProduction),
+      ...getEntries("css", isProduction),
       // TODO: add html entries
       // TODO: add copy assets entries
       // TODO: add TS entries
@@ -75,29 +79,32 @@ export default env => {
       rules: [
         {
           test: /\.js$/,
-          use: ['babel-loader'],
+          use: ["babel-loader"],
         },
         {
           test: /\.less$/i,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+          use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
         },
         {
           test: /\.scss$/i,
           use: [
             MiniCssExtractPlugin.loader,
-            'css-loader',
-            { loader: 'sass-loader', options: { sassOptions: { outputStyle: 'expanded' } } },
+            "css-loader",
+            {
+              loader: "sass-loader",
+              options: { sassOptions: { outputStyle: "expanded" } },
+            },
           ],
         },
         {
           test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
         {
           test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot)$/,
-          type: 'asset/resource',
+          type: "asset/resource",
           generator: {
-            filename: 'assets/[name][ext]',
+            filename: "assets/[name][ext]",
           },
         },
       ],

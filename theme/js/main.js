@@ -1,3 +1,5 @@
+// import { forEachElement } from "./utilities";
+
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMContentLoaded");
@@ -30,7 +32,6 @@
     var $sections = document.querySelectorAll(selector);
 
     forEachElement($sections, function (index, $elem) {
-      console.log(index, $elem); // passes index + value back!
       const btnNames = ["Všechny akce", "Další články"];
       $elem.innerHTML += `<div class="btn-wrapper"><button class="btn btn-conversion">${$elem.getAttribute("id") === "products-2" ? btnNames[1] : btnNames[0]}</button></div>`;
     });
@@ -53,13 +54,13 @@
     forEachElement($blogItems, function (index, $elem) {
       console.log(index, $elem); // passes index + value back!
       $elem.innerHTML += `
-		<div class="icon-wrapper f-center-y">
-			<img src="https://cdn.myshoptet.com/usr/673800.myshoptet.com/user/documents/upload/assets/icons/calendar.png"/>
-			<time class="small-text" data-post-date="${blogPost.date}">${blogPost.date}</time>
-			<hr class="divider" />
-		</div>
-		<p class="text small-text">${blogPost.text}<a class="blog-link" href="${links[index]}">celý článek</a></p>  
-      	`;
+    <div class="icon-wrapper f-center-y">
+      <img src="https://cdn.myshoptet.com/usr/673800.myshoptet.com/user/documents/upload/assets/icons/calendar.png"/>
+      <time class="small-text" data-post-date="${blogPost.date}">${blogPost.date}</time>
+      <hr class="divider" />
+    </div>
+    <p class="text small-text">${blogPost.text}<a class="blog-link" href="${links[index]}">celý článek</a></p>  
+        `;
     });
 
     /**
@@ -149,10 +150,6 @@
     selector = ".container.footer-bottom";
 
     var $footerBottom = document.querySelector(selector);
-    for (const ill of [1, 2]) {
-      $footerBottom.outerHTML =
-        `<div class="footer-bottom__wrapper">${$footerBottom.outerHTML}<</div>` +
-        $topBanner.innerHTML;
-    }
+    $footerBottom.outerHTML = `<div class="footer-bottom__wrapper">${$footerBottom.outerHTML}<</div>`;
   });
 })();
