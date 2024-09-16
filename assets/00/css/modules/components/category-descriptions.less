@@ -1,0 +1,21 @@
+.category-title {
+    text-align: @category-perex-text-align;
+}
+
+.category-perex,
+.category__secondDescription {
+    margin-bottom: @line-height-computed;
+    text-align: @category-perex-text-align;
+    h2 {
+        margin-top: 0;
+    }
+}
+
+.category-perex {
+    .sidebar & {
+        text-align: left;
+    }
+    &.empty-content {
+        text-align: center;
+    }
+}
