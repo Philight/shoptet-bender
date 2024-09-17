@@ -1,7 +1,13 @@
 .benefitBanner {
   z-index: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
 }
 .benefitBanner h2 {
   flex-basis: 100%;
@@ -11,6 +17,9 @@
   z-index: -1;
   content: "";
   position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: calc(100% + 300px);
   max-width: 100vw;
   height: 100%;

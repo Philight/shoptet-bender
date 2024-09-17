@@ -19,6 +19,26 @@
   padding: 0;
 }
 
+#footer .banner-wrapper {
+  display: flex;
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+
+#footer .banner-wrapper img {
+  margin: auto;
+}
+
+#footer .custom-footer__articles,
+#footer .custom-footer__section2,
+#footer .custom-footer__contact {
+  text-align: center;
+  @media screen and (min-width: 1024px) {
+    text-align: left;
+  }
+}
+
 #footer .custom-footer__contact li:nth-child(n + 2) span::before {
   content: none;
 }
@@ -33,6 +53,10 @@
 #footer .custom-footer__contact ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  @media screen and (min-width: 1024px) {
+    justify-content: start;
+  }
 }
 
 #footer .custom-footer__contact li:nth-child(1) {

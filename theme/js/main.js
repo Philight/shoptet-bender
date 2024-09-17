@@ -52,7 +52,6 @@
     ];
 
     forEachElement($blogItems, function (index, $elem) {
-      console.log(index, $elem); // passes index + value back!
       $elem.innerHTML += `
     <div class="icon-wrapper f-center-y">
       <img src="https://cdn.myshoptet.com/usr/673800.myshoptet.com/user/documents/upload/assets/icons/calendar.png"/>

@@ -1,5 +1,5 @@
 {
-  "type": "commonjs",
+  "type": "module",
   "name": "shp-bender",
   "version": "0.0.4",
   "description": "An application for Shoptet visual addons development and local override",

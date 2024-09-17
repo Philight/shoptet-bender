@@ -1,10 +1,71 @@
-@content-box-bg: transparent;
+@template-font: @templateFont;
+@template-headings-font: @templateHeadingsFont;
+@templateFont: "Quicksand";
+@templateHeadingsFont: "Quicksand";
+@content-box-bg: @contentBoxBg;
+@contentBoxBg: transparent;
 @colorPrimary: green;
 
 // ----------------------------------
 
 :root {
   --color-secondary-text: #2e3d80;
-  /* FOnt family Quicksand */
   --icon-size: 12px;
+  /* FOnt family Quicksand */
+  --template-font: "Quicksand", sans-serif;
+  --template-headings-font: "Quicksand", sans-serif;
+}
+
+h2,
+.h2,
+.products.products-block .product .p .name,
+.products.products-block .product .p .blog-link {
+  color: var(--color-secondary-text);
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 600;
+}
+
+h4,
+h5,
+p,
+.text {
+  line-height: 1.4;
+  color: #3a3530;
+}
+
+.small-text {
+  font-family: var(--template-font);
+}
+
+.btn.btn-conversion {
+  background-color: transparent;
 }

@@ -22,8 +22,8 @@ const getEntries = (extension, isProduction) => {
   const entries = {};
   const folders = ["footer", "header", "index"];
   folders.forEach((folder) => {
-    // const files = glob.sync(`./src/${folder}/**/*.${extension}`);
-    const files = glob.sync(srcDir + `${folder}/**/*.${extension}`);
+    const files = glob.sync(`./theme/${folder}/**/*.${extension}`);
+    // const files = glob.sync(srcDir + `${folder}/**/*.${extension}`);
     if (files.length > 0) {
       const foundExtension = files[0].split(".").pop();
       const filename = extensionsFilenames[foundExtension];
@@ -38,7 +38,7 @@ const getEntries = (extension, isProduction) => {
 
 const getGlobalAssetsEntry = () => {
   const entries = {};
-  const files = glob.sync("./assets/**/*");
+  const files = glob.sync(srcDir + "./assets/**/*");
   if (files.length > 0) {
     entries["assets"] = files.map((str) => "./" + str);
   }
